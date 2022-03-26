@@ -1,0 +1,14 @@
+/* index */
+
+/* home */
+.homeBody {
+  display: flex;
+} 
+
+.calendar {
+  flex-grow: 1;
+}
+
+.todolist {
+  flex-grow: 2;
+}

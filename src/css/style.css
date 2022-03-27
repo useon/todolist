@@ -1,14 +1,66 @@
-/* index */
-
-/* home */
-.homeBody {
-  display: flex;
-} 
-
-.calendar {
-  flex-grow: 1;
+:root {
+  --color-lightgray: #F2F2F2;
+  --color-lightblue: #C4D4F2;
+  --font-main: 'LeferiPoint-WhiteObliqueA';
 }
 
-.todolist {
-  flex-grow: 2;
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-size: 10px;
+}
+
+/* index */
+.loginImg {
+  background-image: url('../img/indexImg.jpg');
+  font-size: 2.0rem;
+}
+
+.guideNickname {
+  font-family: var(--font-main);
+}
+
+form {
+  width: 30%;
+  margin-left: 10%;
+}
+
+.loginWrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputNickname {
+  width: 65%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-lightgray);
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+}
+
+.inputNickname:focus {
+  outline: none;
+}
+
+.btnLogin {
+  border: none;
+  background-color: transparent;
+  width: 23%;
+  height: 110%;
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.btnLogin:hover {
+  font-weight: bold;
 }

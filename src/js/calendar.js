@@ -13,3 +13,16 @@ const thisLastDate = new Date(year, month + 1, 0).getDate();
 const thisLastDay = new Date(year, month + 1, 0).getDay();
 
 todayView.textContent = `${year}년 ${month + 1}월 ${date}일`;
+
+function daysPut() {
+  let dateTag = '';
+  for (let i = 0; i < prevLastDay; i++) {
+    dateTag += '<li></li>';
+  }
+  for (let i = 1; i < thisLastDate + 1; i++) {
+    dateTag += `<li>${i}</li>`;
+  }
+  dateView.innerHTML = dateTag;
+}
+
+daysPut();

@@ -1,0 +1,93 @@
+:root {
+  --color-lightgray: #F2F2F2;
+  --color-lightblue: #C4D4F2;
+  --font-main: 'LeferiPoint-WhiteObliqueA';
+}
+
+@font-face {
+  font-family: 'LeferiPoint-WhiteObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-size: 10px;
+}
+
+/* home */
+.homeBody {
+  display: flex;
+} 
+
+.calendar {
+  flex-grow: 1;
+}
+
+p {
+  font-family: var(--font-main);
+  font-weight: bold;
+}
+
+.calendar p {
+  font-size: 3.4rem;
+}
+
+.todolist {
+  flex-grow: 2;
+}
+
+.calendarMain {
+  width: 490px;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.today {
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+}
+
+.headerbtnWrap {
+  margin-left: 40%;
+}
+
+.headerbtnWrap button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.days {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 5%;
+}
+
+.days span {
+  width: calc(100% / 7);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+}
+
+.date {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.date li {
+  width: calc(100% / 7);
+  height: 65px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+}

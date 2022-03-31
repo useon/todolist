@@ -1,21 +1,24 @@
 const todayView = document.querySelector('.today');
 const weatherView = document.querySelector('.weather');
 const dateView = document.querySelector('.date');
+const prevBtn = document.querySelector('.prevBtn');
+const nextBtn = document.querySelector('.nextBtn');
 
 const allDate = new Date();
-const year = allDate.getFullYear();
-const month = allDate.getMonth();
-const day = allDate.getDay();
-const date = allDate.getDate();
-const prevLastDate = new Date(year, month, 0).getDate();
-const prevLastDay = new Date(year, month, 0).getDay();
-const thisLastDate = new Date(year, month + 1, 0).getDate();
-const thisLastDay = new Date(year, month + 1, 0).getDay();
+let year = allDate.getFullYear();
+let month = allDate.getMonth();
+let day = allDate.getDay();
+let date = allDate.getDate();
+let prevLastDate = new Date(year, month, 0).getDate();
+let prevLastDay = new Date(year, month, 0).getDay();
+let thisLastDate = new Date(year, month + 1, 0).getDate();
+let thisLastDay = new Date(year, month + 1, 0).getDay();
 
 todayView.textContent = `${year}년 ${month + 1}월 ${date}일`;
 
+let dateTag = '';
+
 function daysPut() {
-  let dateTag = '';
   for (let i = 0; i < prevLastDay + 1; i++) {
     dateTag += '<li></li>';
   }
@@ -26,3 +29,34 @@ function daysPut() {
 }
 
 daysPut();
+
+function prevMonthPut() {
+  dateTag = '';
+  month -= 1;
+  prevLastDay = new Date(year, month, 0).getDay();
+  thisLastDate = new Date(year, month + 1, 0).getDate();
+  for (let i = 0; i < prevLastDay + 1; i++) {
+    dateTag += '<li></li>';
+  }
+  for (let i = 1; i < thisLastDate + 1; i++) {
+    dateTag += `<li>${i}</li>`;
+  }
+  dateView.innerHTML = dateTag;
+}
+
+function nextMonthPut() {
+  dateTag = '';
+  month += 1;
+  prevLastDay = new Date(year, month, 0).getDay();
+  thisLastDate = new Date(year, month + 1, 0).getDate();
+  for (let i = 0; i < prevLastDay + 1; i++) {
+    dateTag += '<li></li>';
+  }
+  for (let i = 1; i < thisLastDate + 1; i++) {
+    dateTag += `<li>${i}</li>`;
+  }
+  dateView.innerHTML = dateTag;
+}
+
+prevBtn.addEventListener("click", prevMonthPut);
+nextBtn.addEventListener("click", nextMonthPut);

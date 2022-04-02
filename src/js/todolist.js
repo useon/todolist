@@ -14,14 +14,14 @@ function todolistSubmit(event) {
 function todolistPaint(newTodo) {
   const li = document.createElement('li');
   const span = document.createElement('span');
+  const button = document.createElement('button');
+  button.innerText = '';
+  button.classList.add('btnCheckBefore');
   span.classList.add('todoCheckBefore');
   span.innerText = newTodo;
-  const button = document.createElement('button');
-  button.innerText = '❌';
-  button.classList.add('btnCheckBefore');
   button.addEventListener("click", todolistCheck);
-  li.appendChild(span);
   li.appendChild(button);
+  li.appendChild(span);
   todolistMain.appendChild(li);
 }
 

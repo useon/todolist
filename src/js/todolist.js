@@ -2,13 +2,16 @@ const todolistForm = document.querySelector('.todolistForm');
 const todolistInput = document.querySelector('.todolistInput');
 const listAddBtn = document.querySelector('.listAddBtn');
 const todolistMain = document.querySelector('.todolistMain')
-
+let todoArr = [];
+const TODOARR_KEY = 'todoArr';
 
 function todolistSubmit(event) {
   event.preventDefault();
   const newTodo = todolistInput.value;
   todolistInput.value = '';
-  todolistPaint(newTodo)
+  todoArr.push(newTodo);
+  todolistPaint(newTodo);
+  todolistSave();
 }
 
 function todolistPaint(newTodo) {
@@ -43,4 +46,16 @@ function todolistCheck(event) {
 function todolistRemove(event) {
   const li = event.target.parentElement;
   li.remove();
+}
+
+function todolistSave() {
+  localStorage.setItem(TODOARR_KEY, JSON.stringify(todoArr));
+}
+
+const todoSaved = localStorage.getItem(TODOARR_KEY);
+
+if (todoSaved !== null) {
+  const todoParse = JSON.parse(todoSaved);
+  todoArr = todoParse;
+  todoParse.forEach(todolistPaint);
 }

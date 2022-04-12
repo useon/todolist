@@ -9,20 +9,25 @@ function todolistSubmit(event) {
   event.preventDefault();
   const newTodo = todolistInput.value;
   todolistInput.value = '';
-  todoArr.push(newTodo);
-  todolistPaint(newTodo);
+  const todolistObj = {
+    text: newTodo,
+    id: Date.now(),
+  }
+  todoArr.push(todolistObj);
+  todolistPaint(todolistObj);
   todolistSave();
 }
 
 function todolistPaint(newTodo) {
   const li = document.createElement('li');
+  li.id = newTodo.id;
   const span = document.createElement('span');
   const btnCheck = document.createElement('button');
   const btnremove = document.createElement('button');
   btnCheck.innerText = '';
   btnCheck.classList.add('btnCheckBefore');
   span.classList.add('todoCheckBefore');
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   btnCheck.addEventListener("click", todolistCheck);
   btnremove.innerText = '❌';
   btnremove.addEventListener("click", todolistRemove);
@@ -45,7 +50,10 @@ function todolistCheck(event) {
 
 function todolistRemove(event) {
   const li = event.target.parentElement;
+  console.log(li.id)
   li.remove();
+  todoArr = todoArr.filter((todo) => todo.id !== parseInt(li.id));
+  todolistSave();
 }
 
 function todolistSave() {

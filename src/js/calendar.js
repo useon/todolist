@@ -14,7 +14,7 @@ let prevLastDay = new Date(year, month, 0).getDay();
 let thisLastDate = new Date(year, month + 1, 0).getDate();
 let thisLastDay = new Date(year, month + 1, 0).getDay();
 
-todayView.textContent = `${year}년 ${month + 1}월 ${date}일`;
+todayView.textContent = `${year}년 ${month + 1}월`;
 
 let dateTag = '';
 
@@ -42,6 +42,11 @@ function prevMonthPut() {
     dateTag += `<li>${i}</li>`;
   }
   dateView.innerHTML = dateTag;
+  if (month <= -1) {
+    month += 12;
+    year -= 1;
+  }
+  todayView.textContent = `${year}년 ${month + 1}월`;
 }
 
 function nextMonthPut() {
@@ -56,6 +61,11 @@ function nextMonthPut() {
     dateTag += `<li>${i}</li>`;
   }
   dateView.innerHTML = dateTag;
+  if (month >= 12) {
+    month -= 12;
+    year += 1;
+  }
+  todayView.textContent = `${year}년 ${month + 1}월`;
 }
 
 prevBtn.addEventListener("click", prevMonthPut);

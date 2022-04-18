@@ -92,6 +92,17 @@ p {
   font-size: 1.8rem;
 }
 
+.dateHighlighting {
+  border: 3px solid var(--color-lightblue);
+  height: 30%;
+  border-radius: 15px;
+  /* text-decoration: underline;
+  text-decoration-thickness: 5px;
+  text-underline-position: under;
+  text-decoration-color: var(--color-lightblue); */
+
+}
+
 /* home todolist */
 .todolist p {
   font-size: 3.4rem;

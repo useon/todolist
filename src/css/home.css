@@ -18,7 +18,7 @@ html {
 /* home calendar */
 .homeBody {
   display: flex;
-} 
+}
 
 .calendar {
   flex-grow: 1;
@@ -53,7 +53,7 @@ p {
 }
 
 .headerbtnWrap {
-  margin-left: 40%;
+  margin-left: 280px;
 }
 
 .headerbtnWrap button {
@@ -105,6 +105,7 @@ p {
   margin-right: 50px;
   font-size: 3.0rem;
 }
+
 .todolistInput {
   border-style: none;
   border-bottom: 1px solid;
@@ -125,9 +126,7 @@ p {
   margin-bottom: 10px;
 }
 
-.todolistMain li span {
-
-}
+.todolistMain li span {}
 
 .todolistMain li button {
   border-style: none;
@@ -137,13 +136,9 @@ p {
   margin-right: 13px;
 }
 
-.todoCheckBefore {
+.todoCheckBefore {}
 
-}
-
-.btnCheckBefore {
-
-}
+.btnCheckBefore {}
 
 
 .todoCheckAfter {

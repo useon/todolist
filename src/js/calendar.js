@@ -3,6 +3,7 @@ const weatherView = document.querySelector('.weather');
 const dateView = document.querySelector('.date');
 const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
+const todayBtn = document.querySelector('.todayBtn');
 
 const allDate = new Date();
 let year = allDate.getFullYear();
@@ -19,6 +20,14 @@ todayView.textContent = `${year}년 ${month + 1}월`;
 let dateTag = '';
 
 function daysPut() {
+  dateTag = '';
+  year = allDate.getFullYear();
+  month = allDate.getMonth();
+  day = allDate.getDay();
+  date = allDate.getDate();
+  prevLastDay = new Date(year, month, 0).getDay();
+  thisLastDate = new Date(year, month + 1, 0).getDate();
+
   for (let i = 0; i < prevLastDay + 1; i++) {
     dateTag += '<li></li>';
   }
@@ -26,6 +35,7 @@ function daysPut() {
     dateTag += `<li>${i}</li>`;
   }
   dateView.innerHTML = dateTag;
+  todayView.textContent = `${year}년 ${month + 1}월`;
 }
 
 daysPut();
@@ -69,4 +79,5 @@ function nextMonthPut() {
 }
 
 prevBtn.addEventListener("click", prevMonthPut);
+todayBtn.addEventListener("click", daysPut);
 nextBtn.addEventListener("click", nextMonthPut);

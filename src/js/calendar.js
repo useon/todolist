@@ -8,6 +8,7 @@ const todayBtn = document.querySelector('.todayBtn');
 const allDate = new Date();
 let year = allDate.getFullYear();
 let month = allDate.getMonth();
+const thisMonth = allDate.getMonth();
 let day = allDate.getDay();
 let date = allDate.getDate();
 let prevLastDate = new Date(year, month, 0).getDate();
@@ -54,7 +55,11 @@ function prevMonthPut() {
     dateTag += '<li></li>';
   }
   for (let i = 1; i < thisLastDate + 1; i++) {
-    dateTag += `<li>${i}</li>`;
+    if (i == date && thisMonth === month) {
+      dateTag += `<li><span class="dateHighlighting">${i}</span></li>`;
+    } else {
+      dateTag += `<li>${i}</li>`;
+    }
   }
   dateView.innerHTML = dateTag;
   if (month <= -1) {
@@ -73,7 +78,11 @@ function nextMonthPut() {
     dateTag += '<li></li>';
   }
   for (let i = 1; i < thisLastDate + 1; i++) {
-    dateTag += `<li>${i}</li>`;
+    if (i == date && thisMonth === month) {
+      dateTag += `<li><span class="dateHighlighting">${i}</span></li>`;
+    } else {
+      dateTag += `<li>${i}</li>`;
+    }
   }
   dateView.innerHTML = dateTag;
   if (month >= 12) {

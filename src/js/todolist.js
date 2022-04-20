@@ -25,7 +25,6 @@ function todolistPaint(newTodo) {
   const btnCheck = document.createElement('button');
   const btnremove = document.createElement('button');
   btnCheck.innerText = '';
-  btnCheck.classList.add('btnCheckBefore');
   span.classList.add('todoCheckBefore');
   span.innerText = newTodo.text;
   btnCheck.addEventListener("click", todolistCheck);
@@ -43,10 +42,11 @@ function todolistCheck(event) {
   const span = event.target.parentNode.firstChild;
   const button = event.target;
   span.classList.remove('todoCheckBefore');
-  button.classList.remove('btnCheckBefore');
+  button.classList.toggle('btnCheckAfter');
   span.classList.add('todoCheckAfter');
-  button.classList.add('btnCheckAfter');
 }
+
+
 
 function todolistRemove(event) {
   const li = event.target.parentElement;

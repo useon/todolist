@@ -28,10 +28,21 @@ function todolistPaint(newTodo) {
   const span = document.createElement('span');
   const btnCheck = document.createElement('button');
   const btnremove = document.createElement('button');
+  li.classList.add('liTodo');
+  let checkArr = [];
   btnCheck.innerText = '';
-  // if (todoArr[num].check === true) {
-  //   btnCheck.classList.add('btnCheckAfter');
-  // }
+
+  for (let i = 0; i < todoArr.length; i++) {
+    if (todoArr[i].check === true) {
+      const liArr = document.querySelectorAll('.liTodo');
+      for (let j = 0; j < liArr.length; j++) {
+        if (todoArr[i].id == liArr.item(j).id) {
+          liArr.item(j).firstChild.classList.add('btnCheckAfter');
+        }
+      }
+    }
+  }
+
   span.classList.add('todoCheckBefore');
   span.innerText = newTodo.text;
   btnCheck.addEventListener("click", todolistCheck);
@@ -61,6 +72,7 @@ function todolistCheck(event) {
     }
   }
   todoArr[num].check = !(todoArr[num].check);
+  todoArrNum = todoArr[num].check;
   todolistSave();
   num = 0;
 }

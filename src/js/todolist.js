@@ -27,9 +27,10 @@ function todolistPaint(newTodo) {
   li.id = newTodo.id;
   const span = document.createElement('span');
   const btnCheck = document.createElement('button');
-  const btnremove = document.createElement('button');
+  const btnRemove = document.createElement('button');
+  btnCheck.classList.add('btnCheck')
+  btnRemove.classList.add('btnRemove');
   li.classList.add('liTodo');
-  let checkArr = [];
   btnCheck.innerText = '';
 
   for (let i = 0; i < todoArr.length; i++) {
@@ -46,11 +47,11 @@ function todolistPaint(newTodo) {
   span.classList.add('todoCheckBefore');
   span.innerText = newTodo.text;
   btnCheck.addEventListener("click", todolistCheck);
-  btnremove.innerText = '❌';
-  btnremove.addEventListener("click", todolistRemove);
+  btnRemove.innerText = 'X';
+  btnRemove.addEventListener("click", todolistRemove);
   li.appendChild(btnCheck);
   li.appendChild(span);
-  li.appendChild(btnremove);
+  li.appendChild(btnRemove);
   todolistMain.appendChild(li);
 }
 

@@ -30,9 +30,12 @@ function daysPut() {
   prevLastDay = new Date(year, month, 0).getDay();
   thisLastDate = new Date(year, month + 1, 0).getDate();
 
-  for (let i = 0; i < prevLastDay + 1; i++) {
-    dateTag += '<li></li>';
+  if (prevLastDay !== 6) {
+    for (let i = 0; i <= prevLastDay; i++) {
+      dateTag += '<li></li>';
+    }
   }
+
   for (let i = 1; i < thisLastDate + 1; i++) {
     if (i == date) {
       dateTag += `<li><span class="dateHighlighting">${i}</span></li>`;
@@ -51,8 +54,10 @@ function prevMonthPut() {
   month -= 1;
   prevLastDay = new Date(year, month, 0).getDay();
   thisLastDate = new Date(year, month + 1, 0).getDate();
-  for (let i = 0; i < prevLastDay + 1; i++) {
-    dateTag += '<li></li>';
+  if (prevLastDay !== 6) {
+    for (let i = 0; i <= prevLastDay; i++) {
+      dateTag += '<li></li>';
+    }
   }
   for (let i = 1; i < thisLastDate + 1; i++) {
     if (i == date && thisMonth === month) {
@@ -74,8 +79,10 @@ function nextMonthPut() {
   month += 1;
   prevLastDay = new Date(year, month, 0).getDay();
   thisLastDate = new Date(year, month + 1, 0).getDate();
-  for (let i = 0; i < prevLastDay + 1; i++) {
-    dateTag += '<li></li>';
+  if (prevLastDay !== 6) {
+    for (let i = 0; i <= prevLastDay; i++) {
+      dateTag += '<li></li>';
+    }
   }
   for (let i = 1; i < thisLastDate + 1; i++) {
     if (i == date && thisMonth === month) {

@@ -21,7 +21,6 @@ function todolistPaint(newTodo) {
   btnCheck.classList.add('btnCheck')
   btnRemove.classList.add('btnRemove');
   btnCheck.innerText = '';
-  span.classList.add('todoCheckBefore');
   span.innerText = newTodo.text;
   btnCheck.addEventListener("click", todolistCheck);
   btnRemove.innerText = 'X';
@@ -35,6 +34,7 @@ function todolistPaint(newTodo) {
   console.log(liArr[0].firstChild)
   for (let i = 0; i < todoArr.length; i++) {
     if (todoArr[i].check === true && liArr[i] !== undefined) {
+      liArr[i].children[1].classList.add('spanCheckAfter');
       liArr[i].firstChild.classList.add('btnCheckAfter');
     }
   }
@@ -56,12 +56,11 @@ function todolistSubmit(event) {
 todolistForm.addEventListener("submit", todolistSubmit);
 
 function todolistCheck(event) {
-  const span = event.target.parentNode.firstChild;
+  const span = event.target.parentNode.children[1];
   const button = event.target;
   const liId = event.target.parentNode.id;
-  span.classList.remove('todoCheckBefore');
   button.classList.toggle('btnCheckAfter');
-  span.classList.add('todoCheckAfter');
+  span.classList.add('spanCheckAfter');
 
   while (num < 1000) {
     if (todoArr[num].id === Number(liId)) {

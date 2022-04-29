@@ -2,15 +2,11 @@ const todolistForm = document.querySelector('.todolistForm');
 const todolistInput = document.querySelector('.todolistInput');
 const listAddBtn = document.querySelector('.listAddBtn');
 const todolistMain = document.querySelector('.todolistMain')
-
 let todoArr = [];
 const TODOARR_KEY = 'todoArr';
 let isCheck = false;
 let todolistObj;
 let num = 0;
-
-
-
 
 function todolistPaint(newTodo) {
   const li = document.createElement('li');
@@ -31,7 +27,6 @@ function todolistPaint(newTodo) {
   todolistMain.appendChild(li);
 
   const liArr = document.querySelectorAll('.todolistMain li');
-  console.log(liArr[0].firstChild)
   for (let i = 0; i < todoArr.length; i++) {
     if (todoArr[i].check === true && liArr[i] !== undefined) {
       liArr[i].children[1].classList.add('spanCheckAfter');
@@ -70,7 +65,6 @@ function todolistCheck(event) {
     }
   }
   todoArr[num].check = !(todoArr[num].check);
-  todoArrNum = todoArr[num].check;
   todolistSave();
   num = 0;
 }

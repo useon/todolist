@@ -15,6 +15,10 @@ html {
   font-size: 10px;
 }
 
+.invisible {
+  display: none;
+}
+
 /* home calendar */
 .homeBody {
   display: flex;
